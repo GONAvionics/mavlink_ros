@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<mavlink>
+        <include>common.xml</include>
+        <!-- NOTE: If the included file already contains a version tag, remove the version tag here, else uncomment to enable. -->
+        <!--<version>3</version>-->
+        <enums>
+        </enums>
+        <messages>
+                <message id="150" name="RPM_RAW">
+                        <description>This message encodes all the motor RPM measurments form the actuator board</description>
+                        <field type="uint64_t" name="time_usec">Timestamp (microseconds since UNIX epoch or microseconds since system boot)</field>
+                        <field type="float" name="rpm_motor1"></field>
+                        <field type="float" name="rpm_motor2"></field>
+                        <field type="float" name="rpm_motor3"></field>
+                        <field type="float" name="rpm_motor4"></field>
+                </message>
+                <message id="151" name="MOTOR_PWM">
+                        <description>This message encodes all the motor driver values for the motors in the tetrahedron configuration</description>
+                        <field type="uint64_t" name="time_usec">Timestamp (microseconds since UNIX epoch or microseconds since system boot)</field>
+                        <field type="uint8_t" name="motor1">Can take the value between 0x00 to 0xFF</field>
+                        <field type="uint8_t" name="motor2">Can take the value between 0x00 to 0xFF</field>
+                        <field type="uint8_t" name="motor3">Can take the value between 0x00 to 0xFF</field>
+                        <field type="uint8_t" name="motor4">Can take the value between 0x00 to 0xFF</field>
+                </message>
+        </messages>
+</mavlink>

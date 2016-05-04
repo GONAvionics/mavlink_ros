@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<mavlink>
+        <include>common.xml</include>
+        <!-- NOTE: If the included file already contains a version tag, remove the version tag here, else uncomment to enable. -->
+        <!--<version>3</version>-->
+        <enums>
+        </enums>
+        <messages>
+                <message id="150" name="SATBALL_SENS">
+                        <description>This message encodes all the motor RPM measurments form the actuator board</description>
+                        <field type="uint64_t" name="time_usec">Timestamp (microseconds since UNIX epoch or microseconds since system boot)</field>
+                        <field type="int16_t[3]" name="acc">This vector contains imu_acc [ax ay az]</field>
+                        <field type="int16_t[3]" name="gyro">This vector contains imu_gyro [gx gy gz]</field>
+                        <field type="int16_t[3]" name="mag">This vector contains imu_mag [mx my mz]</field>
+                        <field type="int16_t[4]" name="rpm_vect">This vector contains all the rpm values for each motor [m1 m2 m3 m4]</field>
+                </message>
+                <message id="151" name="MOTOR_PWM">
+                        <description>This message encodes all the motor driver values for the motors in the tetrahedron configuration</description>
+                        <field type="uint64_t" name="time_usec">Timestamp (microseconds since UNIX epoch or microseconds since system boot)</field>
+                        <field type="uint16_t[4]" name="motor_pwm">Can take the value between 0x00 to 0xFFFF [m1 m2 m3 m4]</field>
+                        <field type="uint16_t[3]" name="mag_pwm">Can take the value between 0x00 to 0xFFFF [magx magy magz]</field>
+                </message>
+        </messages>
+</mavlink>
